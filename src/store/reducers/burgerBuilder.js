@@ -36,7 +36,13 @@ const reducer = (state = initialState, action) => {
     case actions.SET_INGREDIENTS:
       return {
         ...state,
-        ingredients: action.ingredients,
+        ingredients: {
+          salad: action.ingredients.salad,
+          bacon: action.ingredients.bacon,
+          cheese: action.ingredients.cheese,
+          meat: action.ingredients.meat
+        },
+        totalPrice: initialState.totalPrice,
         error: false
       }
     case actions.FETCH_INGREDIENTS_FAILED:
