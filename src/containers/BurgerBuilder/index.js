@@ -12,6 +12,8 @@ import withErrorHandler from '../../hoc/WithErrorHandler/WithErrorHandler';
 
 import * as burgerActions from '../../store/actions/';
 
+const INGREDIENTS_FETCH_ERROR = "Ingredients can't be loaded!";
+
 class BurgerBuilder extends Component {
   state = {
     purchasing: false,
@@ -57,7 +59,7 @@ class BurgerBuilder extends Component {
 
     let orderSummary = null;
     let burger = this.props.error ?
-      <p>Ingredients can't be loaded!</p> :
+      <p>{INGREDIENTS_FETCH_ERROR}</p> :
       <Spinner />;
     if (this.props.ings) {
       burger = (
